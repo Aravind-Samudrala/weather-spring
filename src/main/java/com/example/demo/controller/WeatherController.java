@@ -27,6 +27,7 @@ public class WeatherController {
 
     @PostMapping("/add")
     public WeatherModel addNewCity(@RequestBody WeatherModel newCityData) {
+        System.out.println(newCityData);
         weatherRepository.save(newCityData) ;
         System.out.println("Added new city successfully") ;
         return newCityData ;
