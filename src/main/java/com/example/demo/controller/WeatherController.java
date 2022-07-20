@@ -4,12 +4,12 @@ package com.example.demo.controller;
 import com.example.demo.dao.WeatherRepository;
 import com.example.demo.model.WeatherModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class WeatherController {
     @Autowired
     private WeatherRepository weatherRepository ;
@@ -34,6 +34,7 @@ public class WeatherController {
 
     @PutMapping("/update")
     public String updateCity(@RequestBody WeatherModel newCityData) {
+        System.out.println("Request to put api");
         weatherRepository.save(newCityData) ;
         return "Updated successfully"  ;
     }
