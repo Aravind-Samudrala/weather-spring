@@ -1,65 +1,21 @@
 package com.example.demo.model;
 
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
+@Data
 @Table(name = "weather")
+@ToString
 public class WeatherModel {
     @Id
     private String city ;
+    @NotBlank(message =  "Input fields should not be empty")
     private String humidity  , temparature  , weatherCondition , windSpeed , windDirection ;
-    public String getWindDirection() {
-        return windDirection;
-    }
-
-    public void setWindDirection(String windDirection) {
-        this.windDirection = windDirection;
-    }
-
-    public String getWindSpeed() {
-        return windSpeed;
-    }
-
-    public void setWindSpeed(String windSpeed) {
-        this.windSpeed = windSpeed;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getTemparature() {
-        return temparature;
-    }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(String humidity) {
-        this.humidity = humidity;
-    }
-
-    public void setTemparature(String temparature) {
-        this.temparature = temparature;
-    }
-
-    public String getWeatherCondition() {
-        return weatherCondition;
-    }
-
-    public void setWeatherCondition(String condition) {
-        this.weatherCondition = condition;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-
-
-
 }
